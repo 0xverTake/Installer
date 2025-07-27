@@ -1,5 +1,4 @@
 // main.js Trinity Installer Web
-// (Ajoutez ici des scripts pour analytics, animation, ou gestion dynamique si besoin)
 
 document.addEventListener('DOMContentLoaded', function() {
   // Animation d'apparition du bouton
@@ -15,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Lancement vidéo de fond après interaction utilisateur (anti-autoplay block)
   const bgvideo = document.getElementById('bgvideo');
   if (bgvideo) {
+    // Essaye de lancer la vidéo immédiatement (si autorisé)
+    bgvideo.play().catch(() => {});
+    // Si bloqué, attend une interaction
     const playBgVideo = () => {
       bgvideo.play().catch(() => {});
       window.removeEventListener('click', playBgVideo);
